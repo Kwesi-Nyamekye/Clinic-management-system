@@ -1,0 +1,15 @@
+<!-- patient/homepage.html -->
+{% extends "patient/dashboard.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to the Clinic Management System</h1>
+    {% if user.is_authenticated %}
+        <a href="{% url 'patient:dashboard' %}" class="btn btn-secondary">Dashboard</a>
+        <a href="{% url 'patient:password_reset' %}" class="btn btn-warning">Reset Password</a>
+        <a href="{% url 'patient:logout' %}" class="btn btn-danger">Logout</a>
+    {% else %}
+        <a href="{% url 'patient:login' %}" class="btn btn-primary">Login</a>
+    {% endif %}
+</div>
+{% endblock %}
